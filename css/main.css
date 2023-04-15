@@ -1,0 +1,951 @@
+/*Importation des polices et icones*/
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap");          /*Importation des éléments graphiques et police*/
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
+
+
+/*Règles générales*/
+
+body{
+    max-width: 1440px;
+    margin: auto;
+    justify-items: center;
+}
+
+main {
+    margin: 0px 50px 0px 50px;
+}
+
+/*Police*/
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 22px;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 30px 0px 25px 25px;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+h4{
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/*Liens*/
+.nav-liens, .hébergement-main a, #Activités-marseille a, .colonne a, .colonne a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+/*Icones*/
+.fa-solid {
+    color: #0065FC;
+    margin: 5px;
+}
+
+.fa-location-dot {
+    color: black;
+    font-size: 16px;
+    background-color: #F2F2F2;
+    box-sizing: border-box;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border: solid 0px;
+    padding: 16px 20px 16px 20px;
+    margin-right: 0px; 
+}
+
+.fa-magnifying-glass {
+    color: white;
+    font-size: 14px;
+}
+
+.fa-star {
+    font-size: 14px;
+    margin: 0px;
+}
+
+.neutral-star {
+    color: #DEEBFF;
+}
+
+.fa-info {
+    color: #0065FC;
+    font-size: 14px;
+    border-radius: 150%;
+    border: solid #D9D9D9 1px;
+    box-sizing: border-box;
+    padding: 5px 10px 5px 10px;
+
+}
+
+.euro {
+    font-weight:700;
+    font-size: 13px;
+}
+
+.fa-chart-line {
+    font-size: 22px;
+    padding-right: 20px;
+}
+
+/*Header générale*/
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*Logo Booki*/
+header img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+/*Navbar on change la margin en padd*/
+.menu ul  {
+    list-style: none;
+    justify-content: center;
+    display: flex;
+    padding-right: 20px;
+}
+
+/*Positionnement relatif*/
+.menu ul li {
+    position: relative;
+}
+
+/*Menu - on enlève la margin à 40*/
+.nav-liens {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 16px;
+    padding-right: 15px;
+    margin: 40px;
+}
+
+/*Menu hover et before*/
+.nav-liens:hover {
+    color: #0065FC;
+}
+
+.nav-liens:hover::before {
+    content: "";
+    display: flex;
+    background-color: #0065FC;
+    width: 70%;
+    font-size: 10px;
+    height: 3px;
+    position: absolute;
+    top: -20px;
+    left: 25px;
+}
+
+/*Formulaire et filtre*/
+/*On essaie cette fois en block*/
+
+.main-interface {
+    display: block;
+    width: 100%;
+}
+
+.main-title h1 {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.main-title p{
+    font-weight: 400;
+    font-size: 16px;
+}
+
+/*On ne change pas cette fois le display*/
+.formulaire .filtre, .sub-filtre, .résultat, .formulaire form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/*La search bar -leger redimenssionement*/
+.formulaire input{
+    margin-right: 0px;
+    padding: 13px 100px 12px 10px;
+    width: 260px;
+    border: 1px solid;
+    border-left: none;
+    border-top-color: #F2F2F2;
+    border-bottom-color: #F2F2F2;
+    border-right: none;
+    font-size: 18px;
+    font-weight: 700;
+} 
+
+/*Le placeholder*/
+.formulaire input::placeholder {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/*Le focus du formulaire pour le retirer, cela semble plus esthétique*/
+.formulaire form input:focus {
+    outline-style: none;
+}
+
+/*Le bouton de recherche -nochange*/
+.pc {
+    border: none;
+    background-color: #0065FC;
+    color: white;
+    padding: 15px 20px 15px 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin: 0px;
+    font-size: 15px;
+}
+
+.handheld {
+    display: none;
+    border: none;
+    background-color: #0065FC;
+    color: white;
+    padding: 12px 12px 12px 12px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin: 0px;
+}
+
+/*Le filtre*/
+.filtre {
+    margin: 20px 20px 20px 0px;
+}
+
+/*On stylise l'affichage des éléments du filtre c'est à dire la boite à item, on met un espace avec gap entre chaque éléments*/
+.filtre, .sub-filtre {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+}
+
+/*Les items*/
+.filtre-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: solid 2px #D9D9D9;
+    border-radius: 60px;
+    padding: 0px 15px 0px 15px;
+    transition: padding 0.7s;
+}
+
+/*Leur texte*/
+.filtre-item p {
+    font-size: 17px;
+    font-weight: 700;
+    margin-left: 2px;
+}
+
+/*On prépare l'animation d'aggrandissement au survol*/
+.filtre-item:hover {
+    background-color: #DEEBFF;
+    padding: 0px 25px 0px 25px;
+}
+
+
+/*La partie résultat*/
+.résultat {
+    margin: 20px 0px 20px 0px;
+}
+
+.résultat p {
+    font-size: 16px;
+    margin: 5px;
+}
+
+/*Hébergement*/
+/*On donne quelques règles d'affichage au conteneur main, son display et la direction de son flex -width100%*/
+.hébergement-main {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin: 20px 0px;
+    
+}
+
+/*On s'occupe du conteneur des cartes "midcard" pour les logements disponibles -nochange*/
+#Hébergements-marseille {
+    display: flex;
+    flex-direction: column;
+    background: #F2F2F2;
+    border-radius: 20px;
+    width: 65%;
+    margin: 40px 0px;
+    box-sizing: border-box;
+    align-items: baseline;
+    padding-bottom: 15px;
+}
+
+/*Conteneur logement*/
+.hébergements-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+    gap: 20px;
+}
+
+/*Cards*/
+.midcard {
+    background: #ffff;
+    border-radius: 20px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height:220px;
+    flex: 30%;
+    min-width: 100px;
+}
+
+/*Définition de l'image*/
+.midimage {         
+    height: 120px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border: solid 5px #ffff;
+    object-fit: cover;
+   
+}
+.textmidzone {
+    text-align: left;
+    padding-left: 5px;
+    padding-bottom: 2px;
+    padding-top: 5px;
+}
+
+
+
+.textmid * {
+    margin: 2px 2px;
+    padding: 0px;
+    
+}
+
+
+.textmid p {
+    font-size: 14px;
+    font-weight:500;
+}
+
+/*La zone de note*/
+.note {                 
+    margin: 2px 4px;
+    padding-bottom: 5px;
+    font-size: 13px;
+}
+
+.more-button{
+    margin-top: 30px;
+}
+
+/*Début du design de la section populaire*/
+.populaire {
+    display: block;
+    flex-direction: column;
+    width: 35%;
+    border-radius: 20px;
+    box-sizing: border-box;
+    background-color: #F2F2F2;
+    padding: 20px;
+    
+
+}
+
+.minicard-titre{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0px;
+}
+
+.minicard-titre h2 {
+    margin: 20px 0px 20px 5px;
+    padding: 10px;
+}
+
+
+/*Le conteneur des minicards*/
+.minicards-holder {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px 20px 10px;
+    width: 90%;
+    padding: 0px;
+    justify-content: center;
+    gap: 15px;
+    
+}
+
+/*Les minicards elles-mêmes*/
+.minicard {
+    width: 100%;
+    height: 130px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 20px;
+    background-color: white;
+    margin-top: 10px;
+    padding: 5px;
+    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+    min-width: 90px;
+}
+
+/*Leur image*/
+.miniature {
+    width: 40%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+/*Leur zone de texte*/
+.textminzone {
+    text-align:left;
+    width: 60%;
+    padding-left: 5px;
+    height: 100%;
+    padding-right: 5px;
+}
+
+
+.textminzone .text-min h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 15px 0px 5px 10px;
+}
+
+.textminzone .text-min p {
+    font-size: 14px;
+    margin: 5px 0px 5px 10px;
+    font-weight: 500;
+}
+
+.textminzone .notemini {
+    margin-top: 0px;
+    padding-top: 5px;
+    margin-left: 10px;
+} 
+
+/*Activités*/
+#Activités-marseille {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.title-activité {
+    margin: 20px;
+}
+
+.card-conteneur {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.activité-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+    height: 400px;
+    width: 100%;
+    background-color: white;
+}
+
+.activité-card img {
+    object-fit: cover;
+    object-position: center;
+    height: 80%;
+    min-height: 320px;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.activité-card h4 {
+    padding: 5px 30px 5px 20px;
+}
+
+/*Footer*/
+.colonne-conteneur {
+    display: flex;
+    column-count: 3;
+    column-width: auto;
+    padding: 30px;
+    justify-content: left;
+    box-sizing: border-box;
+    background-color: #F2F2F2;
+    margin: auto;
+    gap: 12em;
+    width: 100%;
+    margin-top: 30px;
+
+}
+
+/*On définit les colonnes*/
+.colonne {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+}
+
+.colonne h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 10px 5px 10px 5px;
+}
+
+.colonne a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 5px;
+    color: black;
+}
+
+/*Règles pour tablettes on reprend la même structure que le style desktop avec les règles générales de la page.*/
+@media screen and (max-width: 1024px)  {
+   
+    main {
+        justify-content: center;
+    }
+
+
+    /*On change le positionnement et la largeur du header*/
+    header {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    header img {
+        margin: auto;
+    }
+
+    .menu ul {
+        margin-right: 0px;
+    }
+
+    .nav-liens {
+        padding-right: 0px;
+    }
+
+
+    /*On modifie "l'interface" utilisable*/
+    .main-interface {
+        margin: auto;
+        
+    }
+    /*On modifie la taille du filtre et de ses composants*/
+    
+    .sub-filtre{
+        gap: 15px;
+    }
+
+    .filtre-item {
+        padding: 0px 12px 0px 12px;
+    }
+
+    .filtre-item:hover {
+        background-color: #DEEBFF;
+        padding: 0px 15px 0px 15px;
+    }
+
+    .résultat {
+        margin: 20px 0px 40px 0px;
+    }
+
+    .hébergement-main {
+        flex-direction: column;
+        width: 100%;
+        padding: 0px;
+    }
+
+    #Hébergements-marseille {
+        display: block;
+        width: 100%;
+        gap: 30px;
+        padding: 20px 20px 20px 20px;
+        margin-bottom: 50px;
+    }
+
+    .titre-mid {
+       margin: 0px;
+    }
+
+    
+    .populaire {
+        padding: 0px;
+        display: block;
+        width: 100%;
+    }
+
+
+    .minicard-titre {
+        padding-top: 20px;
+    }
+
+
+    .minicards-holder {
+        flex-direction: row;
+        gap: 20px;
+        padding: 5px 20px 5px 20px;
+        margin-bottom: 50px;
+    }
+
+    .minicard{
+        margin-top: 10px;
+        height: 150px;
+        margin-top: 5px;
+        
+    }
+
+    .miniature{
+        height: 145px;
+
+    }
+
+    .text-min h4 {
+        font-size: 16px;
+    }
+
+    .text-min p {
+        font-size: 13px !important;
+        margin: 5px 0px 0px 10px !important;
+    }
+
+    .euro {
+        font-size: 13px 
+    }
+
+    .fa-star, .neutral-star {
+        font-size: 12px;
+    }
+    
+
+    #Activités-marseille {
+        padding: 0px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        display: block;
+    }
+
+    .card-conteneur {
+        gap: 20px;
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+        
+    }
+
+    .activité-card {
+        height: 280px;
+        
+
+    }
+    
+    .activité-card img {
+        height: 192px;
+        min-height: 190px;
+        width: 100%;
+        
+
+    }
+
+    .colonne-conteneur {
+        width: 100%;
+        gap: 25px;
+
+    }
+}
+
+/*Règles pour mobiles*/
+@media screen and (max-width: 768px) {
+   
+   
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: auto;
+        
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        
+    }
+    
+    header img {
+        margin: auto;
+        width: 90px;
+        height: 90px;
+    }
+
+
+    .menu{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu ul {
+        padding: 0px;
+        width: 100%;
+        
+    
+    }
+
+    .menu ul li {
+        width: 100%;
+    }
+
+    .nav-liens {
+        display: block;
+        margin: 0px;
+        padding: 0px;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    
+
+    .menu ul li::before {
+        content: "";
+        display: flex;
+        background-color: #F2F2F2;
+        width: 100%;
+        font-size: 10px;
+        height: 3px;
+        position: absolute;
+        top: 25px;
+        left: 0px;
+    }
+    
+    .nav-liens:hover::before {
+        border-bottom:#0065FC 1px solid;
+        top: 25px;
+        left: 0px;
+        width: 100%;
+    }
+
+
+    .main-interface {
+        
+        width: 95%;
+        
+    }
+
+    .formulaire {
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .fa-location-dot {
+        margin: 0px 0px 0px 0px;
+    }
+
+
+    .formulaire input {
+        padding: 12px 8px 12px 8px;
+        width: 100%;
+        appearance: auto;
+    }
+
+    .pc {
+        display: none;
+    }
+
+    .handheld {
+        display: flex;
+    }
+
+    .filtre {
+        display: block;
+        margin: 20px 0px 30px 0px;
+        width: 100%;
+        gap: 5px;
+        
+        
+    }
+
+    .sub-filtre{
+       flex-wrap: wrap;
+       gap: 15px;
+       
+    }
+
+    .filtre-item {
+        padding: 5px 12px 5px 12px;
+        width: 135px;
+        flex: 40%;
+    }
+
+
+    .fa-person {
+        padding-left: 3px;
+        font-size: 22px;
+    }
+
+    .filtre-item p {
+        font-size: 11px;
+        
+    }
+
+    .filtre-item:hover {
+        background-color: #DEEBFF;
+        padding: 5px 12px 5px 12px;
+
+    }
+
+    .résultat {
+        margin-bottom: 30px;
+    }
+
+    .résultat p {
+        margin: 0px;
+    }
+
+    .hébergement-main{
+        flex-direction: column-reverse;
+        align-items: center;
+        width: 100%;
+        margin:auto;
+        justify-items: center;
+    }
+
+    #Hébergements-marseille {
+        width: 95%;
+        background-color: white;
+        padding: 0px;
+    }
+
+    .hébergements-cards {
+        flex-direction: column;
+        align-content: center;
+        width: 95%;
+        justify-content: center;
+        margin-left: 20px;
+    }
+
+    .midcard {
+        width: 95%;
+        max-height: 200px;
+    }
+
+
+    .midimage {
+        height: 120px;
+        
+    }
+
+    .more-button {
+        display: none;
+    }
+
+    .populaire {
+        width: 95%;
+        border-radius: 0px;
+        padding: 10px 0px 50px 0px;
+        display: block;
+    }
+
+
+
+    .minicard-titre, .minicards-holder {
+        width: 95%;
+        
+    }
+
+    .minicards-holder{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        margin-left: 20px;
+        padding: 5px 0px;
+        align-items: center;
+        width: 95%;
+
+    }
+
+    .minicard {
+        margin-top: 10px;
+        width: 95%;
+    }
+
+    
+    #Activités-marseille {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        padding: 0px;
+        margin-bottom: 50px;
+        margin-left: 20px;
+        justify-items: center;
+        align-items: center;
+        
+    }
+
+    .card-conteneur {
+        flex-direction: column;
+        gap: 30px;
+        width: 95%;
+    }
+
+    .activité-card  {
+        height: 200px;
+        width: 95%;
+        
+    }
+
+    .activité-card img{
+        height: 190px;
+        width: 100%;
+        min-height: 100px;
+    }
+
+   
+    
+    .colonne-conteneur {
+        flex-direction: column;
+        gap: 30px;
+        padding: 35px 0px 60px 20px;
+        justify-content: left;
+        width: 100%;
+    }
+
+    .colonne {
+        padding: 0px;
+    }
+}
